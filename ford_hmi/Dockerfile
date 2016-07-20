@@ -29,6 +29,9 @@ RUN rm -v /etc/nginx/nginx.conf
 # Copy our new configuration
 COPY nginx.conf /etc/nginx/
 
+# Copy SDL Core start script into container
+COPY setup.sh setup.sh
+
 # Configure logger
 RUN ldconfig
 
