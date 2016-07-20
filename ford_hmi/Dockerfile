@@ -16,7 +16,7 @@ RUN mkdir /var/www \
     | tar -v -C /var/www -xz --strip-components 1
 
 #install jq to make it easy to parse JSON output
-RUN curl http://stedolan.github.io/jq/download/linux64/jq -o /usr/sbin/jq
+RUN curl http://stedolan.github.io/jq/download/linux64/jq -o /usr/sbin/jq \
 	&& chmod a+x /usr/sbin/jq
 
 # Install dependencies
