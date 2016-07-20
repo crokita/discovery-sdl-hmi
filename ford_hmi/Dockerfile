@@ -15,6 +15,10 @@ RUN mkdir /var/www \
     && curl -sSL https://github.com/smartdevicelink/sdl_hmi/archive/master.tar.gz \
     | tar -v -C /var/www -xz --strip-components 1
 
+#install jq to make it easy to parse JSON output
+RUN curl http://stedolan.github.io/jq/download/linux64/jq -o /usr/sbin/jq
+	&& chmod a+x /usr/sbin/jq
+
 # Install dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     nginx
@@ -34,4 +38,4 @@ RUN ldconfig
 EXPOSE 8080 8087
 
 # Run nginx
-CMD ["/usr/sbin/nginx"]
+CMD ["/bin/bash", "setup.sh"]
