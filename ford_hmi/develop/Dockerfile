@@ -38,11 +38,7 @@ RUN ldconfig
 
 # Expose the following ports
 #   8080:  Returns index.html of HMI Core
-#   8087:  Expose SDL Core's Web Socket port. Used to comunicate with the HMI
-#   5050: Expose video streaming port
-#   5080: Expose audio streaming port
-#   8090: Expose time testing port
-EXPOSE 8080 8087 5050 5080 8090
+EXPOSE 8080
 
 # Run nginx
 CMD ["/bin/bash", "setup.sh"]
