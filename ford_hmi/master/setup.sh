@@ -3,7 +3,7 @@
 # Find sdl_core's IP address using the etcd database 
 # The HMI can run first if you add a wait=true paramater for etcd where it
 # will wait for a change in etcd
-HMI_WEBSOCKET_IP="$(curl -L http://192.168.1.130:4001/v2/keys/servers/core | /usr/sbin/jq '.node.value')"
+HMI_WEBSOCKET_IP="$(curl -L http://192.168.1.130:23000/v2/keys/servers/core | /usr/sbin/jq '.node.value')"
 #cut off the quotations
 HMI_WEBSOCKET_IP="$(sed 's/\"//g' <<< ${HMI_WEBSOCKET_IP})"
 echo "Changing Flags.js HMI ServerAddress to ${HMI_WEBSOCKET_IP}"
