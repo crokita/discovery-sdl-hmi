@@ -7,18 +7,13 @@ FROM buildpack-deps:jessie-curl
 
 MAINTAINER Chris Rokita version:0.1
 
-ENV SDL_HMI_BRANCH master
-ENV SDL_CORE_NETWORK_INTERFACE eth0
-ENV HMI_WEBSOCKET_ADDRESS 127.0.0.1:8087
+ENV SDL_HMI_BRANCH master 
+ENV HMI_WEBSOCKET_ADDR 127.0.0.1:8087
 
 # Download SDL HMI from github 
 RUN mkdir /var/www \
     && curl -sSL https://github.com/smartdevicelink/sdl_hmi/archive/$SDL_HMI_BRANCH.tar.gz \
     | tar -v -C /var/www -xz --strip-components 1
-
-#install jq to make it easy to parse JSON output
-RUN curl http://stedolan.github.io/jq/download/linux64/jq -o /usr/sbin/jq \
-	&& chmod a+x /usr/sbin/jq
 
 # Install dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \

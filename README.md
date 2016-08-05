@@ -1,11 +1,11 @@
 Hey. Use these commands to run me. You won't regret it
 
-ford HMI
+sdl HMI
 
 master branch:
 
-```docker run -d -p 8080:8080 --name hmi crokita/ford-hmi:master```
+```docker run -d -p 8080:8080 --name hmi crokita/discovery-sdl-hmi:master```
 
 develop branch:
 
-```docker run -d -p 8080:8080 --name hmi crokita/ford-hmi:develop```
+```docker run -d -p 8080:8080 --name hmi crokita/discovery-sdl-hmi:develop```
